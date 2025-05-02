@@ -29,21 +29,34 @@ class PasienController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-        $requestData = $request->validate([
-            'nama' => 'required|min:3',
-            'no_pasien' => 'required',
-            'umur' => 'required',
-            'alamat' => 'nullable',
-            'jenis_kelamin' => 'required',
-        ]);
-        $pasien = new \App\Models\Pasien;
-        $pasien->fill($requestData);
-        $pasien->save();
-        flash('Hore.... Data berhasil disimpan')->success();
-        return back();
+{
+       $requestData = $request->validate([
+        'nama' => 'required|min:3',
+        'no_pasien' => 'required',
+        'umur' => 'required|numeric',
+        'alamat' => 'nullable|string',
+        'jenis_kelamin' => 'required|in:laki - laki,perempuan',
+        'foto' => 'required|image|mimes:jpeg,png,jpg|max:10000',
+    ]);
+
+
+    $pasien = new \App\Models\Pasien;
+    $pasien->fill($requestData);
+
+  
+    if ($request->hasFile('foto')) {
+        $fotoPath = $request->file('foto')->store('pasien', 'public');
+        $pasien->foto = $fotoPath;
     }
+
+   
+    $pasien->save();
+
+ 
+    flash('Hore.... Data berhasil disimpan')->success();
+    return redirect()->route('pasien.index');
+}
+
 
     /**
      * Display the specified resource.

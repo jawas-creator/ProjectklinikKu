@@ -3,8 +3,13 @@
     <div class="card">
         <div class="card-body">
             <h3>Form Pasien</h3>
-            <form action="/pasien" method="POST">
+            <form action="/pasien" method="POST" enctype="multipart/form-data">
                 @csrf
+                <div class="form-group mt-1 mb-3">
+                    <label for="foto">Foto Pasien</label>
+                    <input id="foto" class="form-control @error('foto') is-invalid @enderror" type="file" name="foto" >
+                    <span class="text-danger">{{ $errors->first('foto') }}</span>
+                </div>
                 <div class="form-group mt-1 mb-3">
                     <label for="nama">Nama Pasien</label>
                     <input id="nama" class="form-control @error('nama') is-invalid @enderror" type="text" name="nama" value="{{ old('nama') }}">
