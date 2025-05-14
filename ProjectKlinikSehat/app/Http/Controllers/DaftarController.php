@@ -23,6 +23,8 @@ class DaftarController extends Controller
     public function create()
     {
         //
+        $data['ListPasien'] = \App\Models\Pasien::pluck('nama', 'id');
+        return view('daftar_create', $data);
     }
 
     /**
