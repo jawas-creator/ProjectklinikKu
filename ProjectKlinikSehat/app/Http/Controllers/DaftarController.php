@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Daftar;
+use App\Models\Pasien;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreDaftarRequest;
 use App\Http\Requests\UpdateDaftarRequest;
-use App\Http\Requests;
 
 class DaftarController extends Controller
 {
@@ -24,9 +25,6 @@ class DaftarController extends Controller
     public function create()
     {
         //
-<<<<<<< HEAD
-        $data['ListPasien'] = \App\Models\Pasien::pluck('nama', 'id');
-=======
         $data['listPasien'] = \App\Models\Pasien::orderBy('nama','asc')->get();
         $data['listPoli'] = [
             'Poli Umum' => "poli Umum",
@@ -34,7 +32,6 @@ class DaftarController extends Controller
             'Poli Kandungan' => "poli Kandungan",
             'Poli Anak' => "poli Anak",
         ];
->>>>>>> f61ab34eb74f2bd97d6891ade4cdac5b2fad575c
         return view('daftar_create', $data);
     }
 

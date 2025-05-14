@@ -1,33 +1,14 @@
-<<<<<<< HEAD
-@extends('layouts.app-modern',['title' => 'Pendaftaran Peserta'])
-=======
 @extends('layouts.app_modern', ['title' => 'Pendaftaran Peserta'])
->>>>>>> f61ab34eb74f2bd97d6891ade4cdac5b2fad575c
 @section('content')
 <div class="card">
     <div class="card-header">
         Form Pendaftaran Pasien
-<<<<<<< HEAD
-    </div> <!-- penutup tag card-header -->
-
-=======
     </div>
->>>>>>> f61ab34eb74f2bd97d6891ade4cdac5b2fad575c
     <div class="card-body">
         <form action="/daftar" method="POST">
             @csrf
             <div class="form-group mt-3">
                 <label for="tanggal_daftar">Tanggal Daftar</label>
-<<<<<<< HEAD
-                <input type="date" name="tanggal_daftar" class="form-control" 
-                       value="{{ old('tanggal_daftar') ?? date('Y-m-d') }}">
-                <span class="text-danger">{{ $errors->first('tanggal_daftar') }}</span>
-            </div>
-        </form>
-    </div>
-</div>
-
-=======
                 <input type="date" name="tanggal_daftar" class="form-control" value="{{ old('tanggal_daftar') ?? date('Y-m-d')}}">
                 <span class="text-danger">{{ $errors->first('tanggal_daftar')}}</span>
             </div>
@@ -72,5 +53,4 @@
         </form>
     </div>
 </div>
->>>>>>> f61ab34eb74f2bd97d6891ade4cdac5b2fad575c
 @endsection
