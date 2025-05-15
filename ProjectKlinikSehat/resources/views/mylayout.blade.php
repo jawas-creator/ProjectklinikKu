@@ -4,10 +4,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="" />
-        <meta
-            name="author"
-            content="abdul rahim"
-        />
+        <meta name="author" content="abdul rahim" />
         <title>{{ $title ?? '' }} {{ env('APP_NAME') }}</title>
 
         <link
@@ -24,9 +21,7 @@
         <meta name="theme-color" content="#712cf9" />
     </head>
     <body class="bg-light">
-        <nav
-            class="navbar navbar-expand-lg navbar-light bg-white mb-4 shadow-md"
-        >
+        <nav class="navbar navbar-expand-lg navbar-light bg-white mb-4 shadow-md">
             <div class="container">
                 <a class="navbar-brand" href="#">{{ env('APP_NAME') }}</a>
                 <button
@@ -40,18 +35,10 @@
                 >
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div
-                    class="collapse navbar-collapse"
-                    id="navbarSupportedContent"
-                >
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a
-                                class="nav-link active"
-                                aria-current="page"
-                                href="#"
-                                >Beranda</a
-                            >
+                            <a class="nav-link active" aria-current="page" href="#">Beranda</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a
@@ -64,18 +51,9 @@
                             >
                                 Data Pasien
                             </a>
-                            <ul
-                                class="dropdown-menu"
-                                aria-labelledby="navbarDropdown"
-                            >
-                                <li>
-                                    <a class="dropdown-item" href="/pasien">Lihat Data Pasien</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="/pasien/create"
-                                        >Tambah Data</a
-                                    >
-                                </li>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/pasien">Lihat Data Pasien</a></li>
+                                <li><a class="dropdown-item" href="/pasien/create">Tambah Data</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -91,26 +69,11 @@
                             >
                                 Profil
                             </a>
-                            <ul
-                                class="dropdown-menu dropdown-menu-end"
-                                aria-labelledby="navbarDropdown"
-                            >
-                                <li>
-                                    <a class="dropdown-item" href="#">Action</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#"
-                                        >Another action</a
-                                    >
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider" />
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#"
-                                        >Something else here</a
-                                    >
-                                </li>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
                     </ul>

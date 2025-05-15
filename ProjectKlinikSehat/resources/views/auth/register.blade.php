@@ -1,6 +1,34 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    body {
+        background: #e9f5f3;
+    }
+    .login-card {
+        background: #fff;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    .login-header {
+        background: #2dcea3;
+        color: white;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+    .btn-primary {
+        background-color: #2dcea3;
+        border: none;
+    }
+    .btn-primary:hover {
+        background-color: #25b792;
+    }
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

@@ -15,7 +15,7 @@
         }
 
         .card-header {
-            background-color: #20c997;
+            background-color: #66cdaa;  /* Warna hijau lebih adem seperti klinik */
             color: white;
             font-weight: bold;
             font-size: 1.3rem;
@@ -24,26 +24,42 @@
 
         .table {
             margin-top: 20px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .table th, .table td {
+            text-align: center;
+            padding: 12px;
+            border: 1px solid #ddd;
         }
 
         .table th {
-            background-color: #e6f9f7;
-            color: #00796b;
-            font-weight: 600;
+            background-color: #66cdaa; /* Warna hijau lebih adem */
+            color: white;
+            font-weight: bold;
         }
 
         .table td {
-            vertical-align: middle;
+            background-color: #f9f9f9;
+        }
+
+        .table tbody tr:nth-child(odd) td {
+            background-color: #e9f7f5;
+        }
+
+        .table tbody tr:hover {
+            background-color: #d6f7f2;
         }
 
         .btn-primary {
-            background-color: #00796b;
-            border-color: #00796b;
+            background-color: #66cdaa;  /* Warna hijau yang lebih adem */
+            border-color: #66cdaa;
         }
 
         .btn-primary:hover {
-            background-color: #005f56;
-            border-color: #005f56;
+            background-color: #50a58a; /* Sedikit lebih gelap saat hover */
+            border-color: #50a58a;
         }
 
         .btn-warning {
@@ -78,6 +94,27 @@
             padding: 10px;
             margin-top: 15px;
         }
+
+        /* Styling untuk tombol agar rapi dan sejajar */
+        .btn-sm {
+            padding: 6px 12px;
+            margin: 0 5px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Meningkatkan jarak antar elemen dalam tabel dan tombol */
+        .table td {
+            padding: 10px 15px;
+        }
+
+        /* Menjaga agar tanggal tidak terpotong atau kebawah */
+        .table td:nth-child(4) {
+            white-space: nowrap;  /* Agar tanggal tetap dalam satu baris */
+        }
     </style>
 
     <div class="card">
@@ -102,18 +139,20 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->pasien->nama }}</td>
                             <td>{{ $item->pasien->jenis_kelamin }}</td>
-                            <td>{{ $item->tanggal_daftar }}</td>
+                            <td>{{ \Carbon\Carbon::parse($item->tanggal_daftar)->format('d M Y') }}</td> <!-- Format tanggal -->
                             <td>{{ $item->poli }}</td>
                             <td>{{ $item->keluhan }}</td>
                             <td>
-                                <a href="/pasien/{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
-                                <form action="/pasien/{{ $item->id }}" method="POST" class="d-inline">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Anda Yakin?')">
-                                        Hapus
-                                    </button>
-                                </form>
+                                <div class="btn-group">
+                                    <a href="/pasien/{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                                    <form action="/pasien/{{ $item->id }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Anda Yakin?')">
+                                            Hapus
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @endforeach
